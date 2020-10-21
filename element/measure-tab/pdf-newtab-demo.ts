@@ -35,15 +35,18 @@ export default () => {
 
   step("Click on link and wait for PDF to download", async (browser) => {
 
-    //click on PDF link
+    const newPagePromise = (browser as any).newPagePromise
+​
+    //click on pdf link
     let linkPDF = By.xpath("//a[contains(text(),'pdf.pdf')]")
     let element1 = await browser.findElement(linkPDF)
     await element1.click()
+​
+    //wait for pdf to load and close tab
+    const newPage = await newPagePromise
+    await newPage.waitFor('*')
+    newPage.close()
 
-    //wait for the pdf to load and close tab
-    const newTab = await browser.waitForNewPage()
-    await newTab.waitFor('*')
-    newTab.close()
 
   })
 
