@@ -19,7 +19,7 @@ export const settings: TestSettings = {
  * Version: 1.0
  */
 export default () => {
-  step('Check Headers: Home', async browser => {
+  step('Check Headers: Home', async (browser) => {
     await browser.visit('https://flooded.io/headers')
 
     await browser.takeScreenshot()

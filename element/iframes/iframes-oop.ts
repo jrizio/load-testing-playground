@@ -12,7 +12,7 @@ export const settings: TestSettings = {
   launchArgs: ['--disable-features=site-per-process'],
 }
 export default () => {
-  step('01_Home', async browser => {
+  step('01_Home', async (browser) => {
     //Navigate to homepage.
     await browser.visit('https://nicolevanderhoeven.com/recaptcha-live')
 
@@ -23,7 +23,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('02_TypeAndRecaptcha', async browser => {
+  step('02_TypeAndRecaptcha', async (browser) => {
     //Type name.
     await browser.type(By.id('input_name'), 'Nicole')
 
@@ -31,7 +31,7 @@ export default () => {
     // We disable this by using the launch arg site-per-process in the test settings.
     const frameReCAPTCHA = browser.page
       .frames()
-      .find(frame => frame.url().includes('www.google.com/recaptcha/api2'))
+      .find((frame) => frame.url().includes('www.google.com/recaptcha/api2'))
 
     let cssReCAPTCHA = '#recaptcha-anchor > div.recaptcha-checkbox-border'
 

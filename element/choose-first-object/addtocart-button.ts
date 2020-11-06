@@ -19,7 +19,7 @@ export const settings: TestSettings = {
  * Version: 1.0
  */
 export default () => {
-  step('The Flood Store: Home', async browser => {
+  step('The Flood Store: Home', async (browser) => {
     await browser.visit('https://wordpress.loadtest.io')
 
     let pageTextVerify = By.visibleText('Welcome to the Flood Store.')
@@ -28,7 +28,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('The Flood Store: Click the first Add to Cart', async browser => {
+  step('The Flood Store: Click the first Add to Cart', async (browser) => {
     /*
 			<a href="/" target="_self" class="a-button a-button--full-width a-button--primary js-formsubmit a-button--large">
 			<span class="a-buttoninner">Add to cart</span>

@@ -13,7 +13,7 @@ export const settings: TestSettings = {
 
 export default () => {
   setup({ waitTimeout: 100 })
-  step('Open home Page', async browser => {
+  step('Open home Page', async (browser) => {
     await browser.visit('https://www.onlinemetals.com/')
     await browser.takeScreenshot()
     await browser.wait(
@@ -21,7 +21,7 @@ export default () => {
     )
   })
 
-  step('Get Discount Code', async browser => {
+  step('Get Discount Code', async (browser) => {
     //declare the full text object CSS selector
     let objDiscountCodeText =
       '#evergage-tooltip-ambTMPFl > div > span > span:nth-child(3) > span > span > b > span > span:nth-child(3) > span > span > span:nth-child(2)'

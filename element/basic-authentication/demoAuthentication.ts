@@ -18,7 +18,7 @@ export const settings: TestSettings = {
  * Version: 1.0
  */
 export default () => {
-  step('Authentication: Home', async browser => {
+  step('Authentication: Home', async (browser) => {
     const page = (browser as any).page
     await page.authenticate('https://www.test.mydomain.com/', [
       'user',

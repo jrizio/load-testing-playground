@@ -17,7 +17,7 @@ export const settings: TestSettings = {
 }
 
 export default () => {
-  step('Open and Connect', async browser => {
+  step('Open and Connect', async (browser) => {
     // visit instructs the browser to launch, open a page, and navigate to https://talk-loadtesting.testapp.com
     // we need to disable the microphone pop-up otherwise we can't progress any further in loading the page
     await browser.visit('https://talk-loadtesting.testapp.com')

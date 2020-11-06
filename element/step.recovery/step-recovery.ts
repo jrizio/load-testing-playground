@@ -13,7 +13,7 @@ export const settings: TestSettings = {
 }
 
 /**
- * step.recovery example
+ * local step.recovery example
  * AUTHORED BY: Jason Rizio (jason@flood.io)
  * Version: 1.0
  */
@@ -25,7 +25,7 @@ export default () => {
    await browser.visit("https://wordprezz.loadtest.io")
   })
 
-  step.recovery('Step 1', { recoveryTries: 1 }, async (browser) => {
+  step.recovery('Step 1', { recoveryTries: 2 }, async (browser) => {
    console.log("Step 1 (local recovery) step initiated")
    return RecoverWith.RETRY
   })
