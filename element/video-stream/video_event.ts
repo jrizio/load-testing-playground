@@ -18,7 +18,7 @@ export const settings: TestSettings = {
  * Version: 1.0
  */
 export default () => {
-  step('Home', async browser => {
+  step('Home', async (browser) => {
     await browser.visit(
       'https://live-demo.abigevent.com/live/stream-entry-3.html',
     )
@@ -31,7 +31,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('Home: Click Play', async browser => {
+  step('Home: Click Play', async (browser) => {
     //play the video
     let obj_btn_Play = By.xpath('//*[@id="player-node"]/button')
     await browser.wait(Until.elementIsVisible(obj_btn_Play))
@@ -43,7 +43,7 @@ export default () => {
 
   for (var i = 1; i < 500; i++) {
     //waits a while viewing the video stream
-    step('Watch Video ' + i, async browser => {
+    step('Watch Video ' + i, async (browser) => {
       await browser.wait(20)
       await browser.takeScreenshot()
     })

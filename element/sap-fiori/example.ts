@@ -18,7 +18,7 @@ export const settings: TestSettings = {
 export default () => {
   const randEmail = internet.email()
 
-  step('Test: Start', async browser => {
+  step('Test: Start', async (browser) => {
     await browser.visit(
       'https://www.sapfioritrial.com/sites?helpset=trial&sap-client=001#',
     )
@@ -33,7 +33,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('Click on My Tasks', async browser => {
+  step('Click on My Tasks', async (browser) => {
     let myTasks = By.visibleText('My Tasks')
     await browser.wait(Until.elementIsVisible(myTasks))
 
@@ -48,7 +48,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('Create a new task and save it', async browser => {
+  step('Create a new task and save it', async (browser) => {
     await browser.press(Key.F6)
     await browser.press(Key.F6)
     await browser.press(Key.F6)
@@ -72,7 +72,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('Go back to My Tasks', async browser => {
+  step('Go back to My Tasks', async (browser) => {
     await browser.press(Key.ENTER)
 
     let searchInput = By.xpath("//input[contains(@placeholder, 'Search')]")
@@ -81,7 +81,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('Search for the created task', async browser => {
+  step('Search for the created task', async (browser) => {
     let searchInput = By.xpath("//input[contains(@placeholder, 'Search')]")
     await browser.type(searchInput, 'Something from ' + randEmail)
 

@@ -19,7 +19,7 @@ export const settings: TestSettings = {
  * Version: 1.0
  */
 export default () => {
-  step('The Flood Store: Home', async browser => {
+  step('The Flood Store: Home', async (browser) => {
     await browser.visit('https://wordpress.loadtest.io')
 
     let pageTextVerify = By.visibleText('Welcome to the Flood Store.')
@@ -28,7 +28,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('The Flood Store: Click Hoodies', async browser => {
+  step('The Flood Store: Click Hoodies', async (browser) => {
     let lnkHoodies = await browser.findElement(By.partialLinkText('Hoodies'))
     await lnkHoodies.click()
 
@@ -38,7 +38,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
-  step('The Flood Store: Page Back', async browser => {
+  step('The Flood Store: Page Back', async (browser) => {
     const page = (browser as any).page
     await page.goBack()
 

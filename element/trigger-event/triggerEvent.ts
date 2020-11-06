@@ -19,16 +19,16 @@ export const settings: TestSettings = {
  * Version: 1.0
  */
 export default () => {
-  step('Trigger Event: Shop Home', async browser => {
+  step('Trigger Event: Shop Home', async (browser) => {
     await browser.visit('https://wordpress.loadtest.io/shop/')
 
     await browser.takeScreenshot()
   })
 
-  step('Trigger Event: Change', async browser => {
+  step('Trigger Event: Change', async (browser) => {
     const elementHandle = await browser.page.$('body')
     browser.page.evaluate(
-      element => $(element).trigger('change'),
+      (element) => $(element).trigger('change'),
       elementHandle,
     )
 

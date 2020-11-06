@@ -18,7 +18,7 @@ export const settings: TestSettings = {
  */
 
 export default () => {
-  step('Home', async browser => {
+  step('Home', async (browser) => {
     const page = (browser as any).page
     const pages = (browser as any).pages
 

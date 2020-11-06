@@ -18,10 +18,9 @@ export const settings: TestSettings = {
  */
 
 export default () => {
-
   //declare a global variable that contains the Grid node index (starting from 0)
   //followed by the node index (starting from 0)
-  //and lastly the browser id index (also starting from 0) 
+  //and lastly the browser id index (also starting from 0)
   const globalBrowserID = `${ENV.FLOOD_GRID_INDEX}_${ENV.FLOOD_NODE_INDEX}_${ENV.BROWSER_ID}`
 
   //first row should be '0_0_0'
@@ -41,8 +40,14 @@ export default () => {
 
   //print the values fromteh CSV for this user to the console
   step('Print to console', async (browser: Browser, data: UserData) => {
-    let {username, password} = data
-    console.log("globalBrowserID: " + globalBrowserID + " username: " + username + " password: " + password)
+    let { username, password } = data
+    console.log(
+      'globalBrowserID: ' +
+        globalBrowserID +
+        ' username: ' +
+        username +
+        ' password: ' +
+        password,
+    )
   })
 }
-

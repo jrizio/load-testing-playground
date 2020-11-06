@@ -56,7 +56,7 @@ export default () => {
     await b.takeScreenshot()
   })
 
-  step('Open Workplace', async b => {
+  step('Open Workplace', async (b) => {
     await b.wait(15)
     await b.wait(Until.elementLocated(By.id('ITSFRAME1')))
     await b.switchTo().frame('ITSFRAME1')
@@ -66,7 +66,7 @@ export default () => {
     await b.takeScreenshot()
   })
 
-  step('Compose message', async b => {
+  step('Compose message', async (b) => {
     // Press new message button
     await pressButton(b, By.visibleText('New message'))
     let title = await b.findElement(By.xpath('//*[@id="M0:46:1:1::0:7"]'))
