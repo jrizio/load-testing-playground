@@ -4,8 +4,8 @@ export const settings: TestSettings = {
   disableCache: true,
   clearCache: true,
   clearCookies: true,
-  actionDelay: 3,
-  stepDelay: 3,
+  actionDelay: 2,
+  stepDelay: 2,
   loopCount: 1,
   waitUntil: 'visible',
   chromeVersion: 'stable',
@@ -13,31 +13,30 @@ export const settings: TestSettings = {
 
 export default () => {
   setup({ waitTimeout: 100 })
-  step('Open home Page', async (browser) => {
-    await browser.visit('https://www.onlinemetals.com/')
+  step('Open Flood Store Page', async (browser) => {
+    await browser.visit('https://wordpress.loadtest.io/shop/')
     await browser.takeScreenshot()
     await browser.wait(
-      Until.elementIsVisible(By.xpath("//a[@id='js_signin' and @class]")),
+      Until.elementIsVisible(By.xpath('//*[@id="main"]/header/h1')),
     )
   })
 
-  step('Get Discount Code', async (browser) => {
+  step('Get Beanie Price', async (browser) => {
     //declare the full text object CSS selector
-    let objDiscountCodeText =
-      '#evergage-tooltip-ambTMPFl > div > span > span:nth-child(3) > span > span > b > span > span:nth-child(3) > span > span > span:nth-child(2)'
+    let objBeaniePriceText =
+      '#main > ul > li.post-35.product.type-product.status-publish.has-post-thumbnail.product_cat-accessories.first.instock.sale.shipping-taxable.purchasable.product-type-simple > a.woocommerce-LoopProduct-link.woocommerce-loop-product__link > span.price > ins > span'
 
     //find the text CSS selector within the page
-    await browser.wait(Until.elementIsVisible(By.css(objDiscountCodeText)))
-    let valueDiscountCode = await browser.findElement(
-      By.css(objDiscountCodeText),
-    )
+    await browser.wait(Until.elementIsVisible(By.css(objBeaniePriceText)))
+    let valueBeaniePrice = await browser.findElement(By.css(objBeaniePriceText))
 
     //save the text value to a string
-    let discountCode = await valueDiscountCode.text()
+    let BeaniePrice = await valueBeaniePrice.text()
 
     //output the text value to the console log
-    console.log('The discount code is: ' + discountCode)
+    console.log('The Beanie price is: ' + BeaniePrice)
 
+    /*
     let objDate =
       '#body > div.main-contentarea > footer > div > div > div > div > div.col-md-3.footer-content__wrapper__subcription.footer-content__wrapper_tab.pull-right > div > div > div:nth-child(5) > strong > span'
 
@@ -54,5 +53,6 @@ export default () => {
     )
     //output the year we want 2020
     console.log('My year: ' + outputValue[1])
+    */
   })
 }

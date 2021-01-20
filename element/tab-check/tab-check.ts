@@ -1,7 +1,7 @@
 import { step, TestSettings, Until, By } from '@flood/element'
 
 export const settings: TestSettings = {
-  loopCount: -1,
+  loopCount: 1,
   screenshotOnFailure: true,
   description: 'Chrome Tabs Check',
   actionDelay: 2,
@@ -24,9 +24,8 @@ export default () => {
 
     await page.goto('https://wordpress.loadtest.io', { waitUntil: 'load' })
 
-    await page.click('#post-1457 > div > div > a:nth-child(1)')
-
-    await browser.wait(5)
+    //await page.click('#post-1457 > div > div > a:nth-child(1)')
+    //await browser.wait(5)
 
     // get all the currently open pages as an array
     //let pages = (browser as any).pages;

@@ -2,7 +2,7 @@ import { step, TestSettings, Until, By } from '@flood/element'
 import * as assert from 'assert'
 
 export const settings: TestSettings = {
-  loopCount: -1,
+  loopCount: 1,
   screenshotOnFailure: true,
   description: 'Select a specific Add to Cart Button',
   actionDelay: 2,
@@ -11,7 +11,6 @@ export const settings: TestSettings = {
   clearCookies: true,
   chromeVersion: 'stable',
   ignoreHTTPSErrors: true,
-  //responseTimeMeasurement: 'page'
 }
 
 /**
@@ -20,9 +19,9 @@ export const settings: TestSettings = {
  */
 export default () => {
   step('The Flood Store: Home', async (browser) => {
-    await browser.visit('https://wordpress.loadtest.io')
+    await browser.visit('https://wordpress.loadtest.io/shop/')
 
-    let pageTextVerify = By.visibleText('Welcome to the Flood Store.')
+    let pageTextVerify = By.visibleText('Shop')
     await browser.wait(Until.elementIsVisible(pageTextVerify))
 
     await browser.takeScreenshot()
@@ -36,13 +35,14 @@ export default () => {
 		*/
 
     let addToCartButtons = await browser.findElements(
-      By.xpath("//span[contains(text(),'Add to cart')]"),
+      By.xpath("//a[contains(text(),'Add to cart')]"),
     )
     let chosenAddButton = await browser.findElement(addToCartButtons[0])
     await chosenAddButton.click()
 
-    let pageTextVerify = By.visibleText('has been added to your cart.')
-    await browser.wait(Until.elementIsVisible(pageTextVerify))
+    //check that the 'View cart ->' button has appeared on the page as expected
+    let pageVerify = By.xpath('//*[@id="main"]/ul/li[1]/a[3]')
+    await browser.wait(Until.elementIsVisible(pageVerify))
 
     await browser.takeScreenshot()
   })

@@ -11,6 +11,7 @@ export const settings: TestSettings = {
   stepDelay: 2,
   waitTimeout: 60,
   screenshotOnFailure: true,
+  chromeVersion: 'stable',
 }
 
 /**

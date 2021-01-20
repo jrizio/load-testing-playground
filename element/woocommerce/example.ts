@@ -144,6 +144,6 @@ export const settings: TestSettings = {
   disableCache: true,
   clearCache: true,
   clearCookies: true,
-  actionDelay: 1.5,
-  stepDelay: 2.5,
+  actionDelay: 8.5,
+  stepDelay: 8.5,
 }
