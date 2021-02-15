@@ -2,11 +2,11 @@ import { step, TestSettings, Until, By } from '@flood/element'
 import * as assert from 'assert'
 
 export const settings: TestSettings = {
-  loopCount: -1,
+  loopCount: 1,
   screenshotOnFailure: true,
   description: 'Flooded Headers - Check Header Values',
-  actionDelay: 7,
-  stepDelay: 7,
+  actionDelay: 2,
+  stepDelay: 2,
   disableCache: true,
   clearCookies: true,
   chromeVersion: 'stable',
@@ -21,6 +21,8 @@ export const settings: TestSettings = {
 export default () => {
   step('Check Headers: Home', async (browser) => {
     await browser.visit('https://flooded.io/headers')
+
+    //await browser.wait(30)
 
     await browser.takeScreenshot()
   })

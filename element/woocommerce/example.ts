@@ -1,5 +1,17 @@
 import { step, TestSettings, Until, By } from '@flood/element'
 
+export const settings: TestSettings = {
+  loopCount: -1,
+  description: 'The Flood Store - Detailed Tutorial',
+  screenshotOnFailure: true,
+  disableCache: true,
+  clearCache: true,
+  clearCookies: true,
+  actionDelay: 10,
+  stepDelay: 10,
+  browser: 'firefox',
+}
+
 /**
  * The Flood Store
  * Version: 2.0
@@ -60,6 +72,7 @@ export default () => {
     await browser.takeScreenshot()
   })
 
+  /*
   step('The Flood Store: Checkout Data Entry', async (browser) => {
     //let billingFirstName = await browser.findElement(By.id('billing_first_name'))
 
@@ -135,15 +148,5 @@ export default () => {
 
     await browser.takeScreenshot()
   })
-}
-
-export const settings: TestSettings = {
-  loopCount: -1,
-  description: 'The Flood Store - Detailed Tutorial',
-  screenshotOnFailure: true,
-  disableCache: true,
-  clearCache: true,
-  clearCookies: true,
-  actionDelay: 8.5,
-  stepDelay: 8.5,
+  */
 }

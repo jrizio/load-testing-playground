@@ -13,7 +13,7 @@ import {
  */
 
 export const settings: TestSettings = {
-  loopCount: -1,
+  loopCount: 1,
   description: 'iframes',
   screenshotOnFailure: false,
   disableCache: true,

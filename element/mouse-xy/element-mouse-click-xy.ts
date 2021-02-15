@@ -21,6 +21,8 @@ export default () => {
     const pageTextVerify = By.visibleText('Simple Drawing Canvas Demo')
     await browser.wait(Until.elementIsVisible(pageTextVerify))
 
+    await browser.wait(10)
+
     let inputCanvas = By.xpath("//canvas[contains(@id, 'canvasSimple')]")
     await browser.mouse.click(537, 203, inputCanvas)
 

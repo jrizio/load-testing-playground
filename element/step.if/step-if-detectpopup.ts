@@ -20,6 +20,7 @@ export const settings: TestSettings = {
   clearCookies: true,
   actionDelay: 6.5,
   stepDelay: 6.5,
+  browser: 'webkit',
 }
 
 /**
@@ -42,10 +43,11 @@ export default () => {
       //lets check to see if the modal is displayed
       popupVisible = await (
         await browser.findElement(
-          By.css('#sgpb-popup-dialog-main-div-wrapper > div > imgz'),
+          By.css('#sgpb-popup-dialog-main-div-wrapper > div > img'),
         )
       ).isDisplayed()
     } catch {}
+    //console.log(popupVisible)
   })
 
   step.if(

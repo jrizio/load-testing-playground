@@ -2,7 +2,7 @@ import { step, TestSettings, Until, By } from '@flood/element'
 import * as assert from 'assert'
 
 export const settings: TestSettings = {
-  loopCount: -1,
+  loopCount: 1,
   screenshotOnFailure: true,
   description: 'Browser Back button demo',
   actionDelay: 2,
