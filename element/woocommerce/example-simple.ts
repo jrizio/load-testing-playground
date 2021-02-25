@@ -1,7 +1,7 @@
 import { step, TestSettings, Until, By } from '@flood/element'
 
 export const settings: TestSettings = {
-  loopCount: 1,
+  loopCount: -1,
   description: 'The Flood Store - Simple Tutorial',
   screenshotOnFailure: true,
   disableCache: true,
@@ -9,6 +9,7 @@ export const settings: TestSettings = {
   clearCookies: true,
   actionDelay: 9.5,
   stepDelay: 9.5,
+  browser: 'webkit'
 }
 
 /**
